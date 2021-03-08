@@ -41,3 +41,26 @@ bin_ip = "00001010000000010000000111000011"
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+
+ip,mask = input('ввод IP-сети в формате: 10.1.1.0/24: ').split('/')
+d1,d2,d3,d4 = ip.split('.')
+binip = f'{int(d1):>08b}{int(d2):>08b}{int(d3):>08b}{int(d4):>08b}'
+# IP && mask = Network IP in binary
+rbinip = binip[0:int(mask)] + '0' * (32-int(mask))
+bmask = '1' * int(mask) + '0' * (32-int(mask))
+bm1,bm2,bm3,bm4 = bmask[0:8],bmask[8:16],bmask[16:24],bmask[24:32]
+bi1,bi2,bi3,bi4 = rbinip[0:8],rbinip[8:16],rbinip[16:24],rbinip[24:32]
+
+templ = f'''Network:
+{int(bi1, 2):<8}  {int(bi2, 2):<8}  {int(bi3, 2):<8}  {int(bi4, 2):<8}
+{bi1}  {bi2}  {bi3}  {bi4}
+
+Mask:
+/{mask}
+{int(bm1, 2):<8}  {int(bm2, 2):<8}  {int(bm3, 2):<8}  {int(bm4, 2):<8}
+{bm1:>08}  {bm2:>08}  {bm3:>08}  {bm4:>08}'''
+
+print(templ)
+
+
+
