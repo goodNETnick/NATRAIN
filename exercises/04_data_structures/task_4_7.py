@@ -16,3 +16,9 @@
 """
 
 mac = "AAAA:BBBB:CCCC"
+
+list = ''.join(mac.split(':'))
+
+result = int(list, 16)
+
+print("{:b}".format(result))

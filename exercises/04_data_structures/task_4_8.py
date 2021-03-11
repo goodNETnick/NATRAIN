@@ -26,3 +26,13 @@
 """
 
 ip = "192.168.3.1"
+
+d1,d2,d3,d4 = ip.split('.')
+#print("{:<10}{:<10}{:<10}{:<10}".format(ip.split('.')))
+b1,b2,b3,b4 = str(bin(int(d1)))[2:],str(bin(int(d2)))[2:],str(bin(int(d3)))[2:],str(bin(int(d4)))[2:]
+
+#print("{:b}".format(result))
+
+print("{:<10}{:<10}{:<10}{:<10}".format(d1,d2,d3,d4))
+print("{:>08b}  {:>08b}  {:>08b}  {:>08b}".format(int(d1),int(d2),int(d3),int(d4)))
+#print("{}{}{}{}".format(d1,d2,d3,d4))

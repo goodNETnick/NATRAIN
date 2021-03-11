@@ -23,3 +23,14 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+
+src = 'CAM_table.txt'
+with open(src, 'r') as f:
+    for line in f:
+        if len(line) > 1:
+            if line[1].isdigit():
+                vlan, mac, _, intf = line.strip().split()
+                print(f'''{vlan:<8}{mac:<18}{intf:<8}''')
+
+
+

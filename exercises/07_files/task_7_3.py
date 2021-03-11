@@ -20,3 +20,12 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+src = 'CAM_table.txt'
+with open(src, 'r') as f:
+    for line in f:
+        words = line.strip().split()
+        if len(line) > 1:
+            if line[1].isdigit():
+                print(f'''{words[0]:<8}{words[1]:<18}{words[3]:<8}''')
+
+
