@@ -25,12 +25,15 @@
 """
 
 src = 'CAM_table.txt'
+cams = []
 with open(src, 'r') as f:
     for line in f:
         if len(line) > 1:
             if line[1].isdigit():
                 vlan, mac, _, intf = line.strip().split()
-                print(f'''{vlan:<8}{mac:<18}{intf:<8}''')
+                cams.append([int(vlan), mac, intf])
+for elem in sorted(cams):
+    print(f'''{elem[0]:<8}{elem[1]:<18}{elem[2]:<8}''')
 
 
 
